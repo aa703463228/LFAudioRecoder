@@ -13,6 +13,8 @@
 		0D400E7B1D9A71E70080ECAD /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0D400E791D9A71E70080ECAD /* MainMenu.xib */; };
 		0D400E861D9A71E80080ECAD /* LFAudioRecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D400E851D9A71E80080ECAD /* LFAudioRecoderTests.m */; };
 		0D400E911D9A71E80080ECAD /* LFAudioRecoderUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D400E901D9A71E80080ECAD /* LFAudioRecoderUITests.m */; };
+		0D400EA41D9A71FD0080ECAD /* libmp3lame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D400EA11D9A71FD0080ECAD /* libmp3lame.a */; };
+		0D400EA51D9A71FD0080ECAD /* LFAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D400EA31D9A71FD0080ECAD /* LFAudioRecorder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,10 @@
 		0D400E8C1D9A71E80080ECAD /* LFAudioRecoderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LFAudioRecoderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D400E901D9A71E80080ECAD /* LFAudioRecoderUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LFAudioRecoderUITests.m; sourceTree = "<group>"; };
 		0D400E921D9A71E80080ECAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0D400EA01D9A71FD0080ECAD /* lame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lame.h; sourceTree = "<group>"; };
+		0D400EA11D9A71FD0080ECAD /* libmp3lame.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmp3lame.a; sourceTree = "<group>"; };
+		0D400EA21D9A71FD0080ECAD /* LFAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LFAudioRecorder.h; sourceTree = "<group>"; };
+		0D400EA31D9A71FD0080ECAD /* LFAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LFAudioRecorder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D400EA41D9A71FD0080ECAD /* libmp3lame.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +103,7 @@
 		0D400E701D9A71E70080ECAD /* LFAudioRecoder */ = {
 			isa = PBXGroup;
 			children = (
+				0D400E9E1D9A71FD0080ECAD /* LFAudioRecoder */,
 				0D400E711D9A71E70080ECAD /* AppDelegate.h */,
 				0D400E721D9A71E70080ECAD /* AppDelegate.m */,
 				0D400E771D9A71E70080ECAD /* Assets.xcassets */,
@@ -130,6 +138,25 @@
 				0D400E921D9A71E80080ECAD /* Info.plist */,
 			);
 			path = LFAudioRecoderUITests;
+			sourceTree = "<group>";
+		};
+		0D400E9E1D9A71FD0080ECAD /* LFAudioRecoder */ = {
+			isa = PBXGroup;
+			children = (
+				0D400E9F1D9A71FD0080ECAD /* Lame */,
+				0D400EA21D9A71FD0080ECAD /* LFAudioRecorder.h */,
+				0D400EA31D9A71FD0080ECAD /* LFAudioRecorder.m */,
+			);
+			path = LFAudioRecoder;
+			sourceTree = "<group>";
+		};
+		0D400E9F1D9A71FD0080ECAD /* Lame */ = {
+			isa = PBXGroup;
+			children = (
+				0D400EA01D9A71FD0080ECAD /* lame.h */,
+				0D400EA11D9A71FD0080ECAD /* libmp3lame.a */,
+			);
+			path = Lame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +290,7 @@
 			files = (
 				0D400E761D9A71E70080ECAD /* main.m in Sources */,
 				0D400E731D9A71E70080ECAD /* AppDelegate.m in Sources */,
+				0D400EA51D9A71FD0080ECAD /* LFAudioRecorder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +423,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = LFAudioRecoder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LFAudioRecoder/LFAudioRecoder/Lame",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iue.LFAudioRecoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -407,6 +439,10 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = LFAudioRecoder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LFAudioRecoder/LFAudioRecoder/Lame",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iue.LFAudioRecoder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
